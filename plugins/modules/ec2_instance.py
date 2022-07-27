@@ -237,7 +237,7 @@ options:
   tenancy:
     description:
       - What type of tenancy to allow an instance to use. Default is shared tenancy. Dedicated tenancy will incur additional charges.
-    choices: ['dedicated', 'default']
+    choices: ['dedicated', 'default', 'host']
     type: str
   termination_protection:
     description:
@@ -2017,7 +2017,7 @@ def main():
             core_count=dict(type='int', required=True),
             threads_per_core=dict(type='int', choices=[1, 2], required=True)
         )),
-        tenancy=dict(type='str', choices=['dedicated', 'default']),
+        tenancy=dict(type='str', choices=['dedicated', 'default', 'host']),
         placement_group=dict(type='str'),
         instance_initiated_shutdown_behavior=dict(type='str', choices=['stop', 'terminate']),
         termination_protection=dict(type='bool'),
